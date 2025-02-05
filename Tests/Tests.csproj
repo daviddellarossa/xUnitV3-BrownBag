@@ -35,8 +35,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyClassLibrary\MyClassLibrary.csproj" />
-  </ItemGroup>
-
 </Project>
