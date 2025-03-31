@@ -4,6 +4,7 @@ namespace Tests;
 
 public class TheoryDataTests
 {
+    // Synchronous method returning an instance of TheoryData
     public static TheoryData<int, string> TheoryDataForTest => new TheoryData<int, string>()
     {
         { 1, "1" },
@@ -12,6 +13,7 @@ public class TheoryDataTests
         new TheoryDataRow<int, string>(-1, "-1")
     };
 
+    // Asynchronous method returning an instance of TheoryData
     public static async Task<TheoryData<int, string>> TheoryDataForTestAsync()
     {
         await Task.Delay(1);
@@ -24,6 +26,7 @@ public class TheoryDataTests
         };
     }
 
+    // This test uses a synchronous method return an instance of TheoryData
     [Theory]
     [MemberData(nameof(TheoryDataForTest))]
     public void Test_Sync(int numericValue, string stringValue)
@@ -31,6 +34,7 @@ public class TheoryDataTests
         Assert.Equal(numericValue.ToString(), stringValue);
     }
 
+    // This test uses an asynchronous method return an instance of TheoryData
     [Theory]
     [MemberData(nameof(TheoryDataForTestAsync))]
     public void Test_Async(int numericValue, string stringValue)
@@ -43,6 +47,7 @@ public class TheoryDataTests
 
 public class TheoryDataRowTests
 {
+    // It is also possible to return an array of ITheoryDataRows
     public static ITheoryDataRow[] GetMyData()
     {
         return new[] {
