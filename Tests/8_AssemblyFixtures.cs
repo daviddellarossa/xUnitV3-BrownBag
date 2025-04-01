@@ -12,7 +12,12 @@ public class AssemblyFixtureClass1
         this.fixture = fixture;
     }
 
-    // ...
+    // ... tests here ...
+    [Fact]
+    public void Test1()
+    {
+        Assert.NotNull(fixture);
+    }
 }
 
 public class AssemblyFixtureClass2

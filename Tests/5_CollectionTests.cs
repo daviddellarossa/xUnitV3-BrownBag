@@ -6,13 +6,13 @@
 
 // The simplest way to use test collections is simply by name.
 // Put two classes into the same named collection, and they can derive benefit #1 above:
-[Collection("MyCollection")]
+[Collection("MyCollection1")]
 public class CollectionTests_1_1
 {
     // ... tests here ...
 }
 
-[Collection("MyCollection")]
+[Collection("MyCollection1")]
 public class CollectionTests_1_2
 {
     // ... tests here ...
@@ -24,23 +24,24 @@ public class MyFixture
     // Uses ctor and IDisposable.Dispose to setup/cleanup
 }
 
-[CollectionDefinition("MyCollection")]
+[CollectionDefinition("MyCollection2")]
 public class CollectionClass : ICollectionFixture<MyFixture> { }
 
-[Collection("MyCollection")]
+[Collection("MyCollection2")]
 public class CollectionTests_2_1
 {
     // ... tests here ...
 }
 
-[Collection("MyCollection")]
+[Collection("MyCollection2")]
 public class CollectionTests_2_2
 {
     // ... tests here ...
 }
 
-//The collection fixture will be created once before running any test in the collection, and destroyed after all tests in the collection have been run. If the tests need access to the fixture, they can take it via their constructor:
-[Collection("MyCollection")]
+//The collection fixture will be created once before running any test in the collection, and destroyed after all tests in the collection have been run.
+//If the tests need access to the fixture, they can take it via their constructor:
+[Collection("MyCollection2")]
 public class CollectionTests_2_3
 {
     public CollectionTests_2_3(MyFixture fixture)
